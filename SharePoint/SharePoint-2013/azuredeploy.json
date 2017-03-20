@@ -41,7 +41,8 @@
         "artifactsBaseUrl": "",
         "description": "URL to acquire other templates"
       },
-      "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm"
+      "/": null,
+      "defaultValue": "/https://raw.githubusercontent.com/mrpullen/AzureRM-Templates/blob/master/SharePoint/SharePoint-2013"
     },
     "domainName": {
       "type": "string",
