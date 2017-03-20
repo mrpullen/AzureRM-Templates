@@ -101,28 +101,28 @@
       }
     },
     {
-      "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(parameters('psVMName'),'/ConfigureSPServer')]",
       "apiVersion": "2015-06-15",
       "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/', parameters('psVMName'))]"
       ],
       "location": "[parameters('location')]",
+      "name": "[concat(parameters('psVMName'),'/ConfigurePullServer')]",
       "properties": {
-        "publisher": "Microsoft.Powershell",
-        "type": "DSC",
-        "typeHandlerVersion": "2.17",
         "autoUpgradeMinorVersion": true,
+        "protectedSettings": null,
+        "publisher": "Microsoft.Powershell",
         "settings": {
           "ModulesUrl": "[parameters('psPrepareModulesURL')]",
           "wmfVersion": "4.0",
           "ConfigurationFunction": "[parameters('psPreparationFunction')]",
           "Properties": {
-                "DNSServer": "[parameters('DNSServerAddress')]"
+            "DNSServer": "[parameters('DNSServerAddress')]"
           }
         },
-        "protectedSettings": null
-      }
+        "type": "DSC",
+        "typeHandlerVersion": "2.17"
+      },
+      "type": "Microsoft.Compute/virtualMachines/extensions"
     }
   ]
 }

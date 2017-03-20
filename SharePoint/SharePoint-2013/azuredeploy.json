@@ -147,6 +147,15 @@
       },
       "defaultValue": "Standard_D2"
     },
+
+    "psSubnet": {
+      "type": "string",
+      "metadata": {
+        "description": "The address range of the SP subnet created in the new VNET"
+      },
+      "defaultValue": "10.0.3.0/24"
+    },
+  
     "psNicIPAddress": {
       "type": "string",
       "metadata": {
@@ -245,6 +254,7 @@
     "adVMName": "[concat(variables('sharepointFarmName'),'-AD')]",
 
     "assetLocation": "[concat(parameters('baseUrl'),'/dsc')]",
+
     "configDatabaseName": "SP13_Config",
     "configuringSharepointUrl": "[concat(parameters('baseUrl'),'/configuringSharepoint.json')]",
     "configuringSQLUrl": "[concat(parameters('baseUrl'),'/configuringSQL.json')]",
