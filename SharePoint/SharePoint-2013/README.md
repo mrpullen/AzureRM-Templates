@@ -6,10 +6,10 @@ all VMs have public facing RDP
 
 Click the button below to deploy
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FYvand%2FAzureRM-Templates%2Fmaster%2FSharePoint-2013%2Fazuredeploy.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2F%2Fraw.githubusercontent.com%2Fmrpullen%2FAzureRM-Templates%2Fmaster%2FSharePoint/SharePoint-2013%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
-<a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FYvand%2FAzureRM-Templates%2Fmaster%2FSharePoint-2013%2Fazuredeploy.json" target="_blank">
+<a href="http://armviz.io/#/?load=https%3A//raw.githubusercontent.com/Yvand/AzureRM-Templates/master/SharePoint-2013/azuredeploy.json" target="_blank">
     <img src="http://armviz.io/visualizebutton.png"/>
 </a>
 
