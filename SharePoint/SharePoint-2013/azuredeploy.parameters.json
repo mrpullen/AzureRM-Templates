@@ -3,10 +3,10 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "adminUsername": {
-      "value": "yvand"
+      "value": "mrpullen"
     },
     "spDNSPrefix": {
-      "value": "ydsp13dsc-sp"
+      "value": "mrpp13dsc-sp"
     },
     "sppublicIPAddressName": {
       "value": "PublicIP-SP"
@@ -18,7 +18,10 @@
           "value": "Standard_D1_v2"
       },
       "spPublicIPRGName": {
-          "value": "ydsp13pip"
+          "value": "mrpp13pip"
+      },
+      "domainName": {
+          "value": "043.LOC"
       }
   }
 }

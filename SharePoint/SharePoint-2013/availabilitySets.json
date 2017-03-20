@@ -2,16 +2,19 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "location": {
-      "type": "string"
-    },
     "adAvailabilitySetName": {
       "type": "string"
     },
-    "sqlAvailabilitySetName": {
+    "location": {
+      "type": "string"
+    },
+    "psAvailabilitySetName": {
       "type": "string"
     },
     "spAvailabilitySetName": {
+      "type": "string"
+    },
+    "sqlAvailabilitySetName": {
       "type": "string"
     }
   },
@@ -19,6 +22,12 @@
     {
       "type": "Microsoft.Compute/availabilitySets",
       "name": "[parameters('adAvailabilitySetName')]",
+      "apiVersion": "2015-06-15",
+      "location": "[parameters('location')]"
+    },
+    {
+      "type": "Microsoft.Compute/availabilitySets",
+      "name": "[parameters('psAvailabilitySetName')]",
       "apiVersion": "2015-06-15",
       "location": "[parameters('location')]"
     },

@@ -152,5 +152,6 @@ if ($ErrorMessages)
 }
 
 <#
+Called by Visual Studio like this:
 'C:\Job\Dev\Github\AzureRM-Templates\SharePoint\SharePoint-2013\bin\Debug\staging\SharePoint-2013\Deploy-AzureResourceGroup.ps1' -StorageAccountName '' -ResourceGroupName 'quickstart-sp13' -ResourceGroupLocation 'westeurope' -TemplateFile 'c:\job\dev\github\azurerm-templates\sharepoint\sharepoint-2013\azuredeploy.json' -TemplateParametersFile 'c:\job\dev\github\azurerm-templates\sharepoint\sharepoint-2013\azuredeploy.parameters.json' -ArtifactStagingDirectory '.' -DSCSourceFolder '.\DSC'
 #>

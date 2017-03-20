@@ -8,6 +8,9 @@
     "spLBName": {
       "type": "string"
     },
+    "psLBName": {
+      "type": "string"
+    },
     "adlbName": {
       "type": "string"
     },
@@ -27,6 +30,9 @@
       "type": "string"
     },
     "spCANAT": {
+      "type": "string"
+    },
+    "psPublicIPResourceId": {
       "type": "string"
     },
     "spPublicIPResourceId": {
@@ -140,6 +146,43 @@
     },
     {
       "apiVersion": "2015-06-15",
+      "name": "[parameters('pslbName')]",
+      "type": "Microsoft.Network/loadBalancers",
+      "location": "[parameters('location')]",
+      "properties": {
+        "frontendIPConfigurations": [
+          {
+            "name": "[parameters('LBFE')]",
+            "properties": {
+              "publicIPAddress": {
+                "id": "[parameters('psPublicIpResourceId')]"
+              }
+            }
+          }
+        ],
+        "backendAddressPools": [
+          {
+            "name": "[parameters('LBBE')]"
+          }
+        ],
+        "inboundNatRules": [
+          {
+            "name": "[parameters('RDPNAT')]",
+            "properties": {
+              "frontendIPConfiguration": {
+                "id": "[concat(resourceid(resourceGroup().name,'Microsoft.Network/loadBalancers',parameters('pslbName')), '/frontendIPConfigurations/',parameters('LBFE'))]"
+              },
+              "protocol": "tcp",
+              "frontendPort": 3389,
+              "backendPort": 3389,
+              "enableFloatingIP": false
+            }
+          }
+        ]
+      }
+    },
+    {
+      "apiVersion": "2015-06-15",
       "name": "[parameters('sqllbName')]",
       "type": "Microsoft.Network/loadBalancers",
       "location": "[parameters('location')]",
@@ -179,6 +222,10 @@
   "outputs": {
     "splbID": {
       "value": "[resourceId('Microsoft.Network/loadBalancers',parameters('spLBName'))]",
+      "type": "string"
+    },
+    "pslbID": {
+      "value": "[resourceId('Microsoft.Network/loadBalancers',parameters('psLBName'))]",
       "type": "string"
     },
     "sqllbID": {

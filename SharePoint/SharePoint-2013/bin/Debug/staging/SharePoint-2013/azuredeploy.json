@@ -147,6 +147,13 @@
       },
       "defaultValue": "Standard_D2"
     },
+    "psVMSize": {
+      "type": "string",
+      "metadata": {
+        "description": "The size of the VM Created"
+      },
+      "defaultValue": "Standard_D2"
+    },
     "sqlServerServiceAccountPassword": {
       "type": "securestring",
       "metadata": {
@@ -240,11 +247,27 @@
     "LBFE": "LBFE",
     "ProvisioningADDomainControllerUrl": "[concat(parameters('baseUrl'),'/provisioningDomainController.json')]",
     "provisioningSharepointUrl": "[concat(parameters('baseUrl'),'/provisioningSharepoint.json')]",
+    "provisioningPullServerUrl": "[concat(parameters('baseUrl'),'/provisioningPullServer.json')]",
     "ProvisioningSQLUrl": "[concat(parameters('baseUrl'),'/provisioningSQL.json')]",
+    "": null,
+
+    "ps": null,
+    "psVMName": "[concat(variables('sharepointFarmName'),'-PS')]",
+    "psConfigurationFunction": "ConfigurePullServer.ps1\\ConfigurePullServer",
+    "psConfigureModulesURL": "[concat(variables('assetLocation'),'/ConfigurePullServer.ps1.zip')]",
+
+    "psPreparationFunction": "PreparePullServer.ps1\\PreparePullServer",
+    "psPrepareModulesURL": "[concat(variables('assetLocation'),'/PreparePullServer.ps1.zip')]",
+    "psAvailabilitySetName": "psAvailabiltySet",
+    "psNicName": "psNic",
+    "psDataDisk": "PSDataDisk",
+    "psDataDiskSize": 1000,
+
     "publicIPAddressType": "Dynamic",
     "RDPNAT": "RDP",
     "SettingUpSharepointIPUrl": "[concat(parameters('baseUrl'),'/publicip-',parameters('spPublicIPNewOrExisting'),'.json')]",
     "setupLBsUrl": "[concat(parameters('baseUrl'),'/loadBalancers.json')]",
+
     "sharepointFarmName": "SP13",
     "spAvailabilitySetName": "spAvailabiltySet",
     "spCANAT": "spCentralAdmin",
@@ -267,6 +290,7 @@
     "spSubnetRef": "[concat(variables('VnetID'),'/subnets/',variables('spSubnetName'))]",
     "spVMName": "[concat(variables('sharepointFarmName'),'-SP')]",
     "spWebNAT": "spWeb",
+
     "sqlAvailabilitySetName": "sqlAvailabiltySet",
     "sqlBEAddressPoolID": "[concat(variables('sqllbID'),'/backendAddressPools/',variables('LBBE'))]",
     "sqlConfigurationFunction": "ConfigureSqlServer.ps1\\ConfigureSqlServer",
@@ -730,6 +754,62 @@
           },
           "spDataDisk": {
             "value": "[variables('spDataDisk')]"
+          },
+          "storageAccountNamePrefix": {
+            "value": "[parameters('storageAccountNamePrefix')]"
+          },
+          "DNSServerAddress": {
+            "value": "[parameters('adNicIPAddress')]"
+          }
+        }
+      }
+    },
+    {
+      "name": "ProvisioningPullServerVM",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2015-01-01",
+      "dependsOn": [
+        "Microsoft.Resources/deployments/SettingUpStorageAccount",
+        "Microsoft.Resources/deployments/CreatingNetworkInterfaces",
+        "Microsoft.Resources/deployments/CreatingAvailabilitySets",
+        "Microsoft.Resources/deployments/SettingUpLoadBalancers"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[variables('provisioningPullServerUrl')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "psVMName": {
+            "value": "[variables('psVMName')]"
+          },
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "spPrepareModulesURL": {
+            "value": "[variables('psPrepareModulesURL')]"
+          },
+          "spPreparationFunction": {
+            "value": "[variables('psPreparationFunction')]"
+          },
+          "adminUserName": {
+            "value": "[parameters('adminUsername')]"
+          },
+          "adminPassword": {
+            "value": "[parameters('adminPassword')]"
+          },
+          "spVMSize": {
+            "value": "[parameters('psVMSize')]"
+          },
+          "spAvailabilitySetName": {
+            "value": "[variables('psAvailabilitySetName')]"
+          },
+          "spNicName": {
+            "value": "[variables('psNicName')]"
+          },
+          "spDataDisk": {
+            "value": "[variables('psDataDisk')]"
           },
           "storageAccountNamePrefix": {
             "value": "[parameters('storageAccountNamePrefix')]"
