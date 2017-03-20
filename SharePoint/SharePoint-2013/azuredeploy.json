@@ -41,8 +41,6 @@
         "artifactsBaseUrl": "",
         "description": "URL to acquire other templates"
       },
-      "/": null,
-
       "defaultValue": "https://raw.githubusercontent.com/mrpullen/AzureRM-Templates/master/SharePoint/SharePoint-2013"
     },
     "domainName": {
