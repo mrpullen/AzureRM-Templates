@@ -551,6 +551,10 @@
           "spPublicIPResourceId": {
             "value": "[variables(concat('SpPublicIP',parameters('spPublicIPNewOrExisting')))]"
           },
+          "psPublicIPResourceId": {
+            "value": "[variables('psPublicIPResourceId')]"
+          },
+
           "adPublicIpResourceId": {
             "value": "[variables('adPublicIpResourceId')]"
           },
