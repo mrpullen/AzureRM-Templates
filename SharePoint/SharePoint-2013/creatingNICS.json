@@ -20,6 +20,21 @@
     "adRDPNATRuleID": {
       "type": "string"
     },
+    "psNicName": {
+      "type": "string"
+    },
+    "psSubnetRef": {
+      "type": "string"
+    },
+    "psNicIPAddress": {
+      "type": "string"
+    },
+    "psBEAddressPoolID": {
+      "type": "string"
+    },
+    "psRDPNATRuleID": {
+      "type": "string"
+    },
     "sqlNicName": {
       "type": "string"
     },
