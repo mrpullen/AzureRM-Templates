@@ -41,7 +41,7 @@
         "artifactsBaseUrl": "",
         "description": "URL to acquire other templates"
       },
-      "defaultValue": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm"
+      "defaultValue": "https://raw.githubusercontent.com/mrpullen/AzureRM-Templates/master/SharePoint/SharePoint-2013"
     },
     "domainName": {
       "type": "string",
@@ -147,6 +147,22 @@
       },
       "defaultValue": "Standard_D2"
     },
+
+    "psSubnet": {
+      "type": "string",
+      "metadata": {
+        "description": "The address range of the SP subnet created in the new VNET"
+      },
+      "defaultValue": "10.0.3.0/24"
+    },
+  
+    "psNicIPAddress": {
+      "type": "string",
+      "metadata": {
+        "description": "The IP address of the new AD VM"
+      },
+      "defaultValue": "10.0.0.5"
+    },
     "psVMSize": {
       "type": "string",
       "metadata": {
@@ -154,6 +170,7 @@
       },
       "defaultValue": "Standard_D2"
     },
+
     "sqlServerServiceAccountPassword": {
       "type": "securestring",
       "metadata": {
@@ -235,7 +252,9 @@
     "adSubnetName": "adSubnet",
     "adSubnetRef": "[concat(variables('VnetID'),'/subnets/',variables('adSubnetName'))]",
     "adVMName": "[concat(variables('sharepointFarmName'),'-AD')]",
+
     "assetLocation": "[concat(parameters('baseUrl'),'/dsc')]",
+
     "configDatabaseName": "SP13_Config",
     "configuringSharepointUrl": "[concat(parameters('baseUrl'),'/configuringSharepoint.json')]",
     "configuringSQLUrl": "[concat(parameters('baseUrl'),'/configuringSQL.json')]",
@@ -249,18 +268,17 @@
     "provisioningSharepointUrl": "[concat(parameters('baseUrl'),'/provisioningSharepoint.json')]",
     "provisioningPullServerUrl": "[concat(parameters('baseUrl'),'/provisioningPullServer.json')]",
     "ProvisioningSQLUrl": "[concat(parameters('baseUrl'),'/provisioningSQL.json')]",
-    "": null,
-
     "ps": null,
     "psVMName": "[concat(variables('sharepointFarmName'),'-PS')]",
     "psConfigurationFunction": "ConfigurePullServer.ps1\\ConfigurePullServer",
     "psConfigureModulesURL": "[concat(variables('assetLocation'),'/ConfigurePullServer.ps1.zip')]",
-
+    "pspublicIPAddressName": "pspublicIP",
     "psPreparationFunction": "PreparePullServer.ps1\\PreparePullServer",
     "psPrepareModulesURL": "[concat(variables('assetLocation'),'/PreparePullServer.ps1.zip')]",
     "psAvailabilitySetName": "psAvailabiltySet",
     "psNicName": "psNic",
     "psDataDisk": "PSDataDisk",
+    "psLBName" :  "psLoadBalancer",
     "psDataDiskSize": 1000,
 
     "publicIPAddressType": "Dynamic",
@@ -379,6 +397,9 @@
           "adpublicIPAddressName": {
             "value": "[variables('adpublicIPAddressName')]"
           },
+          "pspublicIPAddressName": {
+            "value": "[variables('pspublicIPAddressName')]"
+          },
           "sqlpublicIPAddressName": {
             "value": "[variables('sqlpublicIPAddressName')]"
           },
@@ -404,6 +425,9 @@
           },
           "adAvailabilitySetName": {
             "value": "[variables('adAvailabilitySetName')]"
+          },
+          "psAvailabilitySetName": {
+            "value": "[variables('psAvailabilitySetName')]"    
           },
           "sqlAvailabilitySetName": {
             "value": "[variables('sqlAvailabilitySetName')]"
@@ -490,6 +514,9 @@
           "spLBName": {
             "value": "[variables('spLBName')]"
           },
+          "psLBName": {
+            "value": "[variables('psLBName')]"
+          },
           "sqllbName": {
             "value": "[variables('sqlLBName')]"
           },
@@ -510,6 +537,9 @@
           },
           "adlbName": {
             "value": "[variables('adLBName')]"
+          },
+          "psPublicIPResourceId": {
+            "value": "[variables(concat('psPublicIP',parameters('psPublicIPNewOrExisting')))]"
           },
           "spPublicIPResourceId": {
             "value": "[variables(concat('SpPublicIP',parameters('spPublicIPNewOrExisting')))]"

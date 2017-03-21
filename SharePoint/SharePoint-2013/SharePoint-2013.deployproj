@@ -35,7 +35,6 @@
     <None Include="Deployment.targets">
       <Visible>False</Visible>
     </None>
-    <Content Include="Deploy-AzureResourceGroup.ps1" />
     <Content Include="provisioningPull.json" />
     <Content Include="README.md" />
     <Content Include="dsc\ConfigureSharePointServer.ps1.zip" />
@@ -49,6 +48,7 @@
     <Content Include="provisioningSharepoint.json" />
     <Content Include="publicip-existing.json" />
     <Content Include="publicip-new.json" />
+    <Content Include="Scripts\Deploy-AzureResourceGroup.ps1" />
     <Content Include="storageAccount.json" />
     <Content Include="vnet-new.json" />
     <Content Include="vnet-with-dns-server.json" />

@@ -22,6 +22,21 @@
       },
       "domainName": {
           "value": "043.LOC"
+      },
+      "adminPassword": {
+          "value": "pw572A12*"
+      },
+      "sharePointFarmAccountPassword": {
+          "value": "pw572A12*"
+      },
+      "sharePointFarmPassphrasePassword": {
+          "value": "pw572A12*"
+      },
+      "sharePointSetupUserAccountPassword": {
+          "value": "pw572A12*"
+      },
+      "sqlServerServiceAccountPassword": {
+          "value": "pw572A12*"
       }
   }
 }
