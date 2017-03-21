@@ -273,6 +273,7 @@
     "psConfigurationFunction": "ConfigurePullServer.ps1\\ConfigurePullServer",
     "psConfigureModulesURL": "[concat(variables('assetLocation'),'/ConfigurePullServer.ps1.zip')]",
     "pspublicIPAddressName": "pspublicIP",
+    "psPublicIpResourceId": "[resourceId(concat('Microsoft.Network','/','publicIPAddresses'),variables('pspublicIPAddressName'))]",
     "psPreparationFunction": "PreparePullServer.ps1\\PreparePullServer",
     "psPrepareModulesURL": "[concat(variables('assetLocation'),'/PreparePullServer.ps1.zip')]",
     "psAvailabilitySetName": "psAvailabiltySet",
