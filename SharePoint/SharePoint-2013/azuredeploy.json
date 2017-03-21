@@ -817,10 +817,10 @@
           "location": {
             "value": "[parameters('location')]"
           },
-          "spPrepareModulesURL": {
+          "psPrepareModulesURL": {
             "value": "[variables('psPrepareModulesURL')]"
           },
-          "spPreparationFunction": {
+          "psPreparationFunction": {
             "value": "[variables('psPreparationFunction')]"
           },
           "adminUserName": {
@@ -829,16 +829,16 @@
           "adminPassword": {
             "value": "[parameters('adminPassword')]"
           },
-          "spVMSize": {
+          "psVMSize": {
             "value": "[parameters('psVMSize')]"
           },
-          "spAvailabilitySetName": {
+          "psAvailabilitySetName": {
             "value": "[variables('psAvailabilitySetName')]"
           },
-          "spNicName": {
+          "psNicName": {
             "value": "[variables('psNicName')]"
           },
-          "spDataDisk": {
+          "psDataDisk": {
             "value": "[variables('psDataDisk')]"
           },
           "storageAccountNamePrefix": {
