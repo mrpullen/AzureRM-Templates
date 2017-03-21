@@ -161,7 +161,7 @@
       "metadata": {
         "description": "The IP address of the new AD VM"
       },
-      "defaultValue": "10.0.0.5"
+      "defaultValue": "10.0.3.5"
     },
     "psVMSize": {
       "type": "string",
