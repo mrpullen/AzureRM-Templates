@@ -155,7 +155,7 @@
       },
       "defaultValue": "10.0.3.0/24"
     },
-  
+
     "psNicIPAddress": {
       "type": "string",
       "metadata": {
@@ -268,7 +268,6 @@
     "provisioningSharepointUrl": "[concat(parameters('baseUrl'),'/provisioningSharepoint.json')]",
     "provisioningPullServerUrl": "[concat(parameters('baseUrl'),'/provisioningPullServer.json')]",
     "ProvisioningSQLUrl": "[concat(parameters('baseUrl'),'/provisioningSQL.json')]",
-    "ps": null,
     "psVMName": "[concat(variables('sharepointFarmName'),'-PS')]",
     "psConfigurationFunction": "ConfigurePullServer.ps1\\ConfigurePullServer",
     "psConfigureModulesURL": "[concat(variables('assetLocation'),'/ConfigurePullServer.ps1.zip')]",
@@ -278,7 +277,7 @@
     "psAvailabilitySetName": "psAvailabiltySet",
     "psNicName": "psNic",
     "psDataDisk": "PSDataDisk",
-    "psLBName" :  "psLoadBalancer",
+    "psLBName": "psLoadBalancer",
     "psDataDiskSize": 1000,
 
     "publicIPAddressType": "Dynamic",
@@ -427,7 +426,7 @@
             "value": "[variables('adAvailabilitySetName')]"
           },
           "psAvailabilitySetName": {
-            "value": "[variables('psAvailabilitySetName')]"    
+            "value": "[variables('psAvailabilitySetName')]"
           },
           "sqlAvailabilitySetName": {
             "value": "[variables('sqlAvailabilitySetName')]"
