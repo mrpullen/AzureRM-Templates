@@ -35,7 +35,7 @@
     <None Include="Deployment.targets">
       <Visible>False</Visible>
     </None>
-    <Content Include="provisioningPull.json" />
+    <Content Include="provisioningPullServer.json" />
     <Content Include="README.md" />
     <Content Include="dsc\ConfigureSharePointServer.ps1.zip" />
     <Content Include="dsc\ConfigureSqlServer.ps1.zip" />
