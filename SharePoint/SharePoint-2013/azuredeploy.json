@@ -268,8 +268,6 @@
     "provisioningSharepointUrl": "[concat(parameters('baseUrl'),'/provisioningSharepoint.json')]",
     "provisioningPullServerUrl": "[concat(parameters('baseUrl'),'/provisioningPullServer.json')]",
     "ProvisioningSQLUrl": "[concat(parameters('baseUrl'),'/provisioningSQL.json')]",
-    "": null,
-
     "ps": null,
     "psVMName": "[concat(variables('sharepointFarmName'),'-PS')]",
     "psConfigurationFunction": "ConfigurePullServer.ps1\\ConfigurePullServer",
@@ -281,7 +279,7 @@
     "psNicName": "psNic",
     "psDataDisk": "PSDataDisk",
     "psLBName" :  "psLoadBalancer",
-     "sDataDiskSize": 1000,
+    "psDataDiskSize": 1000,
 
     "publicIPAddressType": "Dynamic",
     "RDPNAT": "RDP",
