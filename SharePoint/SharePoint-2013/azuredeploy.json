@@ -360,6 +360,12 @@
         "properties": {
           "addressPrefix": "[parameters('spSubnet')]"
         }
+      },
+      {
+        "name": "[variables('psSubnetName')]",
+        "properties": {
+          "addressPrefix": "[parameters('psSubnet')]"
+        }
       }
     ],
     "VnetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
