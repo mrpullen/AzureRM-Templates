@@ -147,7 +147,7 @@ configuration ConfigureSharePointServer
             FarmConfigDatabaseName   = $DatabaseName
             Passphrase               = $SharePointFarmPassphrasecreds
             FarmAccount              = $SharePointFarmAccountcreds
-            PsDscRunAsCredential     = $SPsetupCreds
+            InstallAccount           = $SPsetupCreds
             AdminContentDatabaseName = $AdministrationContentDatabaseName
             DependsOn = "[xADUser]CreateFarmAccount","[xADUser]CreateSetupAccount", "[Group]AddSetupUserAccountToLocalAdminsGroup"
 		}
