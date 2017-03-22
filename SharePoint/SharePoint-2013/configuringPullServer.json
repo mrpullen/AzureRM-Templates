@@ -38,14 +38,7 @@
         "settings": {
           "ModulesUrl": "[parameters('psConfgureModulesURL')]",
           "wmfVersion": "4.0",
-          "ConfigurationFunction": "[parameters('psConfigurationFunction')]",
-          "Properties": {
-            "DomainName": "[parameters('domainName')]",
-            "AdminCreds": {
-              "UserName": "[parameters('adminUserName')]",
-              "Password": "PrivateSettingsRef:AdminPassword"
-            }
-          }
+          "ConfigurationFunction": "[parameters('psConfigurationFunction')]"
         },
         "protectedSettings": {
           "Items": {
