@@ -936,7 +936,7 @@
           "location": {
             "value": "[parameters('location')]"
           },
-          "sqlVMName": {
+          "psVMName": {
             "value": "[variables('psVMName')]"
           },
           "adminUsername": {
@@ -945,10 +945,10 @@
           "adminPassword": {
             "value": "[parameters('adminPassword')]"
           },
-          "sqlConfgureModulesURL": {
+          "psConfgureModulesURL": {
             "value": "[variables('psConfigureModulesURL')]"
           },
-          "sqlConfigurationFunction": {
+          "psConfigurationFunction": {
             "value": "[variables('psConfigurationFunction')]"
           },
           "domainName": {
