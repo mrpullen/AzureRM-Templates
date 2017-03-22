@@ -49,6 +49,8 @@ configuration ConfigurePullServer
             DependsOn               = "[Script]UnlockIISSection"                        
         }
 
+
+
         xDscWebService PSDSCComplianceServer
         {
             Ensure                  = "Present"
