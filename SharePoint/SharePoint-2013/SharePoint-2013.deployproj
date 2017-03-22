@@ -28,6 +28,7 @@
     <Content Include="availabilitySets.json" />
     <Content Include="azuredeploy.parameters.json" />
     <Content Include="azuredeploy.json" />
+    <Content Include="configuringPullServer.json" />
     <Content Include="configuringSQL.json" />
     <Content Include="configuringSharepoint.json" />
     <Content Include="creatingNICS.json" />
@@ -438,6 +439,8 @@
     <None Include="DSC Code\PrepareSharePointServer.ps1\xNetworking\Examples\Sample_xIPAddress_Parameterized.ps1" />
     <None Include="DSC Code\PrepareSharePointServer.ps1\xNetworking\xNetworking.psd1" />
     <None Include="DSC Code\PrepareSharePointServer.ps1\xNetworking\xNetworking_TechNetDocumentation.html" />
+    <None Include="dsc\ConfigurePullServer.ps1.zip" />
+    <None Include="dsc\PreparePullServer.ps1.zip" />
   </ItemGroup>
   <Target Name="GetReferenceAssemblyPaths" />
 </Project>

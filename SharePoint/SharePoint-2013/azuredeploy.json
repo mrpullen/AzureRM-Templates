@@ -246,10 +246,10 @@
     "adModulesURL": "[concat(variables('assetLocation'),'/CreateADPDC.ps1.zip')]",
     "adNicId": "[resourceId('Microsoft.Network/networkInterfaces',variables('adNicName'))]",
     "adNicName": "adNic",
-    
+
     "adpublicIPAddressName": "adpublicIP",
     "adPublicIpResourceId": "[resourceId(concat('Microsoft.Network','/','publicIPAddresses'),variables('adpublicIPAddressName'))]",
-    
+
     "adRDPNATRuleID": "[concat(variables('adlbID'),'/inboundNatRules/',variables('RDPNAT'))]",
     "adSubnetName": "adSubnet",
     "adSubnetRef": "[concat(variables('VnetID'),'/subnets/',variables('adSubnetName'))]",
@@ -260,6 +260,7 @@
     "configDatabaseName": "SP13_Config",
     "configuringSharepointUrl": "[concat(parameters('baseUrl'),'/configuringSharepoint.json')]",
     "configuringSQLUrl": "[concat(parameters('baseUrl'),'/configuringSQL.json')]",
+    "configuringPullServerUrl": "[concat(parameters('baseUrl'),'/configuringPullServer.json')]",
     "contentDatabaseName": "SP13_80_Content",
     "CreatingAvailabilitySetsUrl": "[concat(parameters('baseUrl'),'/availabilitySets.json')]",
     "creatingNICSUrl": "[concat(parameters('baseUrl'),'/creatingNICS.json')]",
@@ -274,10 +275,10 @@
     "psVMName": "[concat(variables('sharepointFarmName'),'-PS')]",
     "psConfigurationFunction": "ConfigurePullServer.ps1\\ConfigurePullServer",
     "psConfigureModulesURL": "[concat(variables('assetLocation'),'/ConfigurePullServer.ps1.zip')]",
-    
+
     "pspublicIPAddressName": "pspublicIP",
     "psPublicIpResourceId": "[resourceId(concat('Microsoft.Network','/','publicIPAddresses'),variables('pspublicIPAddressName'))]",
-    
+
     "psPreparationFunction": "PreparePullServer.ps1\\PreparePullServer",
     "psPrepareModulesURL": "[concat(variables('assetLocation'),'/PreparePullServer.ps1.zip')]",
     "psAvailabilitySetName": "psAvailabiltySet",
@@ -915,6 +916,44 @@
               "[parameters('adNicIPAddress')]"
             ]
           }
+        }
+      }
+    },
+    {
+      "name": "ConfiguringPullServerVM",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2015-01-01",
+      "dependsOn": [
+        "Microsoft.Resources/deployments/UpdatingDNStoPrimaryADVM"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[variables('configuringPullServerUrl')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "sqlVMName": {
+            "value": "[variables('psVMName')]"
+          },
+          "adminUsername": {
+            "value": "[parameters('adminUsername')]"
+          },
+          "adminPassword": {
+            "value": "[parameters('adminPassword')]"
+          },
+          "sqlConfgureModulesURL": {
+            "value": "[variables('psConfigureModulesURL')]"
+          },
+          "sqlConfigurationFunction": {
+            "value": "[variables('psConfigurationFunction')]"
+          },
+          "domainName": {
+            "value": "[parameters('domainName')]"
+          }        
         }
       }
     },
