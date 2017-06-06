@@ -62,11 +62,11 @@
         },
         "storageProfile": {
           "imageReference": {
-                        "publisher": "MicrosoftSQLServer",
-                        "offer": "SQL2014SP2-WS2012R2",
-                        "sku": "Enterprise",
-                        "version": "latest"
-                    },
+              "publisher": "MicrosoftSQLServer",
+              "offer": "SQL2014SP2-WS2012R2",
+              "sku": "Enterprise",
+              "version": "latest"
+          },
           "osDisk": {
             "name": "osdisk",
             "vhd": {
