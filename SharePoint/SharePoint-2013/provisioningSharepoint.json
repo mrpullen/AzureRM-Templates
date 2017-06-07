@@ -58,11 +58,11 @@
           "adminPassword": "[parameters('adminPassword')]"
         },
         "storageProfile": {
-          "imageReference": {
-            "publisher": "MicrosoftSharePoint",
-            "offer": "MicrosoftSharePointServer",
-            "sku": "2013",
-            "version": "latest"
+           "imageReference": {
+              "publisher": "MicrosoftSharepoint",
+              "offer": "MicrosoftSharePointServer",
+              "sku": "2016",
+              "version": "latest"
           },
           "osDisk": {
             "name": "osdisk",
